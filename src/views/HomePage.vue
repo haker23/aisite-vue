@@ -19,14 +19,14 @@
             <el-submenu index="/">
               <template slot="title">
                 <i class="el-icon-user"></i>
-                <span>用户管理</span>
+                <span>访谈对象管理</span>
               </template>
-              <el-menu-item index="/counselorlist">咨询师管理</el-menu-item>
-              <el-menu-item index="/customerlist">客户管理</el-menu-item>
+              <el-menu-item index="/counselorlist">咨询师列表</el-menu-item>
+              <el-menu-item index="/customerlist">客户列表</el-menu-item>
             </el-submenu>
             <el-menu-item index="/interviewlist">
               <i class="el-icon-menu"></i>
-              <span slot="title">用户访谈列表</span>
+              <span slot="title">访谈历史记录</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
