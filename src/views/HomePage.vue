@@ -26,7 +26,7 @@
             </el-submenu>
             <el-menu-item index="/interviewlist">
               <i class="el-icon-menu"></i>
-              <span slot="title">访谈历史记录</span>
+              <span slot="title">访谈记录列表</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -44,65 +44,65 @@
 
 <script>
 
-export default {
-  name: 'HomePage',
-  data() {
-    return {
-      user: {},
-      customerName: '',
-    }
-  },
-  computed: {
-    showBread() {
-      return this.$route.path !== '/'
-    }
-  },
-  created() {
-    this.user = this.$store.state.user
-  },
-  methods: {
-    handleCommand(command) {
-      if (command === 'logout') {
-        this.$store.dispatch("logout").then(() => {
-          this.$router.push({
-            name: 'LoginPage'
+  export default {
+    name: 'HomePage',
+    data () {
+      return {
+        user: {},
+        customerName: '',
+      }
+    },
+    computed: {
+      showBread () {
+        return this.$route.path !== '/'
+      }
+    },
+    created () {
+      this.user = this.$store.state.user
+    },
+    methods: {
+      handleCommand (command) {
+        if (command === 'logout') {
+          this.$store.dispatch("logout").then(() => {
+            this.$router.push({
+              name: 'LoginPage'
+            })
           })
-        })
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>
-.home-header {
-  width: 100%;
-  height: 50px;
-  background: rgb(198, 221, 252);
-  display: flex;
-  align-items: center;
-}
+  .home-header {
+    width: 100%;
+    height: 50px;
+    background: rgb(198, 221, 252);
+    display: flex;
+    align-items: center;
+  }
 
-.home-user {
-  width: 110px;
-  line-height: 50px;
-  position: fixed;
-  right: 10px;
-}
+  .home-user {
+    width: 110px;
+    line-height: 50px;
+    position: fixed;
+    right: 10px;
+  }
 
-.input-with-select {
-  width: 200px;
-  position: fixed;
-  right: 140px;
-}
+  .input-with-select {
+    width: 200px;
+    position: fixed;
+    right: 140px;
+  }
 
-#home-title {
-  line-height: 50px;
-  font-size: 2em;
-}
+  #home-title {
+    line-height: 50px;
+    font-size: 2em;
+  }
 
-.contain-aside >>> .el-menu {
-  overflow: hidden;
-  border-right: 0;
-}
+  .contain-aside>>>.el-menu {
+    overflow: hidden;
+    border-right: 0;
+  }
 </style>

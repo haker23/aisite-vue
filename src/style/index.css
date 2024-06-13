@@ -2,5 +2,67 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  overflow-y: hidden;
+}
+
+.hx-form {
+  padding: 0px 0px 0px 0px;
+}
+.hx-table {
+  padding: 10px 20px 20px 20px;
+}
+
+.hx-form-collapse {
+  margin-top: -70px;
+  border: none;
+  padding: 70px 20px 20px 20px;
+}
+
+.hx-form-collapse-title {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Microsoft Yahei";
+  margin-left: 10px;
+  color: #409eff;
+}
+
+.hx-form-label .el-form-item__label {
+  color: #606266;
+}
+
+.hx-form .el-row {
+  margin-bottom: 2px !important;
+}
+.hx-form .el-row .el-form-item {
+  margin-bottom: 16px !important;
+}
+.hx-form .el-collapse-item__content {
+  padding-bottom: 15px !important;
+}
+
+.hx-form-label .el-row {
+  margin-bottom: 0px !important;
+}
+
+.bitian {
+  color: red;
+}
+
+.hx-processtree {
+  padding: 0px 20px 20px 20px;
+}
+
+.hx-title {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Microsoft Yahei";
+  margin-left: 10px;
+  color: #409eff;
+}
+
+.hx-form-margin {
+  margin-top: 79px;
+}
+
+.noSelect thead .el-table-column--selection .cell {
+  display: none;
 }

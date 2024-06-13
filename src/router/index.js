@@ -20,7 +20,7 @@ const router = new Router({
 					component: () => import('@/views/counselor/CounselorList'),
 					meta: {
 						auth: true,
-						title: '咨询师管理'
+						title: '咨询师列表'
 					}
 				},
 				{
@@ -29,7 +29,25 @@ const router = new Router({
 					component: () => import('@/views/customer/CustomerList'),
 					meta: {
 						auth: true,
-						title: '客户管理'
+						title: '客户列表'
+					}
+				},
+        {
+					path: 'customerAnalysisEdit',
+					name: 'CustomerAnalysisEdit',
+					component: () => import('@/views/customer/CustomerAnalysisEdit'),
+					meta: {
+						auth: true,
+						title: '客户信息编辑'
+					}
+				},
+        {
+					path: 'customerAnalysisView',
+					name: 'CustomerAnalysisView',
+					component: () => import('@/views/customer/CustomerAnalysisView'),
+					meta: {
+						auth: true,
+						title: '客户信息查看'
 					}
 				},
 				{
@@ -38,7 +56,7 @@ const router = new Router({
 					component: () => import('@/views/interview/InterviewList'),
 					meta: {
 						auth: true,
-						title: '用户访谈列表'
+						title: '访谈记录列表'
 					}
 				}
 			]
