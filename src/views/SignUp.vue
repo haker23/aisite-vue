@@ -43,7 +43,7 @@ export default {
       },
       rules: {
         userType: [{ required: true, message: '请选择用户类型', trigger: 'blur' }],
-        acocunt: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+        account: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
         confirmPassword: [{ required: true, message: '请再次输入密码', trigger: 'blur' }]
       },

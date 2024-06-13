@@ -33,7 +33,7 @@
         <el-main>
           <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>{{ $route.meta.title }}</el-breadcrumb-item>
+            <el-breadcrumb-item v-if="showBread">{{ $route.meta.title }}</el-breadcrumb-item>
           </el-breadcrumb>
           <router-view />
         </el-main>
@@ -49,7 +49,12 @@ export default {
   data() {
     return {
       user: {},
-      customerName: ''
+      customerName: '',
+    }
+  },
+  computed: {
+    showBread() {
+      return this.$route.path !== '/'
     }
   },
   created() {
