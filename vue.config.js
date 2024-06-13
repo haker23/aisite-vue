@@ -1,4 +1,17 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+let proxyObj = {}
+proxyObj['/'] = {
+  target: 'http://localhost:9090',
+  ws: false,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/aisite': '/aisite'
+  }
+}
+
+module.exports = {
+  devServer: {
+    host: 'localhost',
+    port: 9091,
+    proxy: proxyObj
+  }
+}
