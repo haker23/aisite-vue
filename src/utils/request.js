@@ -30,8 +30,7 @@ request.interceptors.response.use(
         message: response.data.msg
       })
     }
-    let res = response.data
-    return res
+    return response.data
   },
   error => {
     console.log('err' + error)
