@@ -40,6 +40,15 @@ const router = new Router({
 						auth: true,
 						title: '用户访谈列表'
 					}
+				},
+				{
+					path: '/information',
+					name: 'PersonInformation',
+					component: () => import('@/views/PersonInformation'),
+					meta: {
+						auth: false,
+						title: '个人信息管理'
+					}
 				}
 			]
 		},

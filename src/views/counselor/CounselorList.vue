@@ -4,7 +4,7 @@
       <el-row>
         <el-col :span="12">
           <el-form-item label="咨询师姓名">
-            <el-input v-model="listQuery.account" class="query-input" />
+            <el-input v-model="listQuery.name" class="query-input" clearable />
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -19,6 +19,10 @@
       v-loading="listLoading"
       ref="ConsultantsTable"
       :data="list"
+      :height="tableHeight"
+      :header-row-style="{height: '50px'}"
+      :row-style="rowStyle"
+      :cell-style="{padding:'0px'}"
       border
       highlight-current-row
       stripe
@@ -66,12 +70,24 @@ export default {
       total: 0,
       listQuery: {
         pageNum: 1,
-        pageSize: 10
+        pageSize: 10,
+        name: ''
       },
-      listLoading: false
+      listLoading: false,
+      tableHeight: '430px',
+      rowStyle: {
+        height: '43px'
+      }
     }
   },
+  beforeMount() {
+		// 设置列表高度
+		var h = document.documentElement.clientHeight || document.body.clientHeight
+		this.tableHeight = (h - 228) + 'px'
+    this.rowStyle.height = (h - 280) / this.listQuery.pageSize + 'px'
+  },
   created() {
+    this.listQuery.name = this.$route.query.name
     this.handleQuery()
   },
   methods: {
@@ -93,7 +109,6 @@ export default {
 }
 
 .query-input >>> .el-input__inner {
-  width: 200px;
   height: 30px;
 }
 </style>

@@ -4,16 +4,17 @@
       <el-header class="home-header">
         <span id="home-title">AI客户访谈助手</span>
         <el-input v-model="customerName" placeholder="请输入客户姓名" class="input-with-select">
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="append" icon="el-icon-search" @click="handleQuery"></el-button>
         </el-input>
         <el-dropdown class="home-user" placement="bottom-end" @command="handleCommand">
           <span>欢迎，{{ user.account }}</span>
           <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="information">个人信息管理</el-dropdown-item>
             <el-dropdown-item command="logout">注销</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
-      <el-container>
+      <el-container class="home-contain">
         <el-aside class="contain-aside" width="200px">
           <el-menu router>
             <el-submenu index="/">
@@ -68,7 +69,19 @@ export default {
             name: 'LoginPage'
           })
         })
+      } else if (command === 'information') {
+        this.$router.push({
+          name: 'PersonInformation'
+        })
       }
+    },
+    handleQuery() {
+      this.$router.push({
+        name: 'CounselorList',
+        query: {
+          name: this.customerName
+        }
+      })
     }
   }
 }
@@ -81,6 +94,8 @@ export default {
   background: rgb(198, 221, 252);
   display: flex;
   align-items: center;
+  position: fixed;
+  z-index: 2;
 }
 
 .home-user {
@@ -99,6 +114,10 @@ export default {
 #home-title {
   line-height: 50px;
   font-size: 2em;
+}
+
+.home-contain {
+  margin-top: 60px;
 }
 
 .contain-aside >>> .el-menu {
