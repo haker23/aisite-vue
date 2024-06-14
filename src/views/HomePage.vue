@@ -92,55 +92,55 @@
 </script>
 
 <style scoped>
-.home-header {
-  width: 100%;
-  height: 50px;
-  background: rgb(198, 221, 252);
-  display: flex;
-  align-items: center;
-  position: fixed;
-  z-index: 2;
-  box-shadow: 0px 4px 8px -4px #000;
-}
+  .home-header {
+    width: 100%;
+    height: 50px;
+    background: rgb(198, 221, 252);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0px 4px 8px -4px #000;
+  }
 
-.home-user {
-  width: 110px;
-  line-height: 50px;
-  position: fixed;
-  right: 10px;
-}
+  .home-user {
+    width: 110px;
+    line-height: 50px;
+    position: fixed;
+    right: 10px;
+  }
 
-.input-with-select {
-  width: 200px;
-  position: fixed;
-  right: 140px;
-}
+  .input-with-select {
+    width: 200px;
+    position: fixed;
+    right: 140px;
+  }
 
   #home-title {
     line-height: 50px;
     font-size: 2em;
   }
 
-.home-contain {
-  margin-top: 60px;
-  height: 100vh;
-}
+  .home-contain {
+    margin-top: 60px;
+    height: 100vh;
+  }
 
-.contain-aside {
-  display: flex;
-  position: fixed;
-  height: 100vh;
-  box-shadow: 3px 0 8px -4px #000;
-  z-index: 2;
-}
+  .contain-aside {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 3px 0 8px -4px #000;
+    z-index: 2;
+  }
 
-.contain-aside>>>.el-menu {
-  width: 100%;
-  overflow: hidden;
-  border-right: 0;
-}
+  .contain-aside>>>.el-menu {
+    width: 100%;
+    overflow: hidden;
+    border-right: 0;
+  }
 
-.contain-main {
-  margin-left: 200px;
-}
+  .contain-main {
+    margin-left: 200px;
+  }
 </style>

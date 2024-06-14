@@ -5,13 +5,13 @@
 
     <div v-if="isCreatedInterview" class="interview-video">
       <video class="video-player" :src="videoUrl1" controls autoplay></video>
-      <video v-if="isInterviewerEnter" class="video-player" :src="videoUrl2" controls autoplay></video>
+      <video class="video-player" :src="videoUrl2" controls autoplay></video>
     </div>
 
-    
+
     <div class="interview-title">
       <span>
-        >>> 提示内容 
+        >>> 提示内容
       </span>
     </div>
     <div class="interview-chat">
@@ -98,55 +98,51 @@ export default {
 </script>
 
 <style scoped>
-
-.interview {
-  width: 100%;
-}
+  .interview {
+    width: 100%;
+  }
 
 .interview-button {
   margin: 50px 20px 20px 0;
 }
 
-.interview-video {
-  display: flex;
-}
+  .interview-video {
+    display: flex;
+  }
 
-.video-player {
-  width: 300px;
-}
+  .video-player {
+    width: 300px;
+  }
 
-.interview-title {
-  margin: 30px 0 10px 0;
-}
+  .interview-title {
+    margin: 30px 0 10px 0;
+  }
 
-.interview-chat {
-  border-radius: 20px;
-  box-shadow: 0 0 3px #000;
-  height: 600px;
-  margin-right: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-direction: column;
-}
+  .interview-chat {
+    border-radius: 20px;
+    box-shadow: 0 0 3px #000;
+    height: 600px;
+    margin-right: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: column;
+  }
 
-.chat-view {
-  height: 450px;
-  width: 100%;
-  border: 1px;
-  margin: 10px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
+  .chat-view {
+    height: 450px;
+    width: 100%;
+    border: 1px;
+    margin: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
 
-.chat-input >>> .el-textarea__inner {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
+  .chat-input>>>.el-textarea__inner {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
 
-.question {
-
-}
-
+  .question {}
 </style>
