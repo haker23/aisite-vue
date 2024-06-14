@@ -1,4 +1,4 @@
-import request from '@/utils/reuqest'
+import request from '@/utils/request'
 
 /**
  * 更新用户信息

@@ -4,16 +4,17 @@
       <el-header class="home-header">
         <span id="home-title">客情智探</span>
         <el-input v-model="customerName" placeholder="请输入客户姓名" class="input-with-select">
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="append" icon="el-icon-search" @click="handleQuery"></el-button>
         </el-input>
         <el-dropdown class="home-user" placement="bottom-end" @command="handleCommand">
           <span>欢迎，{{ user.account }}</span>
           <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="information">个人信息管理</el-dropdown-item>
             <el-dropdown-item command="logout">注销</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
-      <el-container>
+      <el-container class="home-contain">
         <el-aside class="contain-aside" width="200px">
           <el-menu router>
             <el-submenu index="/">
@@ -44,44 +45,58 @@
 
 <script>
 
-  export default {
-    name: 'HomePage',
-    data () {
-      return {
-        user: {},
-        customerName: '',
-      }
-    },
-    computed: {
-      showBread () {
-        return this.$route.path !== '/'
-      }
-    },
-    created () {
-      this.user = this.$store.state.user
-    },
-    methods: {
-      handleCommand (command) {
-        if (command === 'logout') {
-          this.$store.dispatch("logout").then(() => {
-            this.$router.push({
-              name: 'LoginPage'
-            })
+export default {
+  name: 'HomePage',
+  data() {
+    return {
+      user: {},
+      customerName: '',
+    }
+  },
+  computed: {
+    showBread() {
+      return this.$route.path !== '/'
+    }
+  },
+  created() {
+    this.user = this.$store.state.user
+  },
+  methods: {
+    handleCommand(command) {
+      if (command === 'logout') {
+        this.$store.dispatch("logout").then(() => {
+          this.$router.push({
+            name: 'LoginPage'
           })
-        }
+        })
+      } else if (command === 'information') {
+        this.$router.push({
+          name: 'PersonInformation'
+        })
       }
+    },
+    handleQuery() {
+      this.$router.push({
+        name: 'CounselorList',
+        query: {
+          name: this.customerName
+        }
+      })
     }
   }
+}
 </script>
 
 <style scoped>
-  .home-header {
-    width: 100%;
-    height: 50px;
-    background: rgb(198, 221, 252);
-    display: flex;
-    align-items: center;
-  }
+.home-header {
+  width: 100%;
+  height: 50px;
+  background: rgb(198, 221, 252);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+}
 
   .home-user {
     width: 110px;
@@ -96,10 +111,14 @@
     right: 140px;
   }
 
-  #home-title {
-    line-height: 50px;
-    font-size: 2em;
-  }
+#home-title {
+  line-height: 50px;
+  font-size: 2em;
+}
+
+.home-contain {
+  margin-top: 60px;
+}
 
   .contain-aside>>>.el-menu {
     overflow: hidden;
