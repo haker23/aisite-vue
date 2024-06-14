@@ -6,14 +6,13 @@
 
 <script>
 
-export default {
-  name: 'App',
-  components: {
+  export default {
+    name: 'App',
+    components: {
+    }
   }
-}
 </script>
 
 <style>
-@import '@/style/index.css';
-
+  @import '@/style/index.css'
 </style>

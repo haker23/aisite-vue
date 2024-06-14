@@ -27,7 +27,7 @@
             </el-submenu>
             <el-menu-item index="/interviewlist">
               <i class="el-icon-menu"></i>
-              <span slot="title">访谈历史记录</span>
+              <span slot="title">访谈记录列表</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -98,18 +98,18 @@ export default {
   z-index: 2;
 }
 
-.home-user {
-  width: 110px;
-  line-height: 50px;
-  position: fixed;
-  right: 10px;
-}
+  .home-user {
+    width: 110px;
+    line-height: 50px;
+    position: fixed;
+    right: 10px;
+  }
 
-.input-with-select {
-  width: 200px;
-  position: fixed;
-  right: 140px;
-}
+  .input-with-select {
+    width: 200px;
+    position: fixed;
+    right: 140px;
+  }
 
 #home-title {
   line-height: 50px;
@@ -120,8 +120,8 @@ export default {
   margin-top: 60px;
 }
 
-.contain-aside >>> .el-menu {
-  overflow: hidden;
-  border-right: 0;
-}
+  .contain-aside>>>.el-menu {
+    overflow: hidden;
+    border-right: 0;
+  }
 </style>
