@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-header class="home-header">
-        <span id="home-title">AI客户访谈助手</span>
+        <span id="home-title">客情智探</span>
         <el-input v-model="customerName" placeholder="请输入客户姓名" class="input-with-select">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
