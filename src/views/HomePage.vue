@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-header class="home-header">
-        <span id="home-title">AI客户访谈助手</span>
+        <span id="home-title">客情智探</span>
         <el-input v-model="customerName" placeholder="请输入客户姓名" class="input-with-select">
           <el-button slot="append" icon="el-icon-search" @click="handleQuery"></el-button>
         </el-input>
@@ -49,46 +49,46 @@
 
 <script>
 
-export default {
-  name: 'HomePage',
-  data() {
-    return {
-      user: {},
-      customerName: '',
-    }
-  },
-  computed: {
-    showBread() {
-      return this.$route.path !== '/'
-    }
-  },
-  created() {
-    this.user = this.$store.state.user
-  },
-  methods: {
-    handleCommand(command) {
-      if (command === 'logout') {
-        this.$store.dispatch("logout").then(() => {
-          this.$router.push({
-            name: 'LoginPage'
-          })
-        })
-      } else if (command === 'information') {
-        this.$router.push({
-          name: 'PersonInformation'
-        })
+  export default {
+    name: 'HomePage',
+    data () {
+      return {
+        user: {},
+        customerName: '',
       }
     },
-    handleQuery() {
-      this.$router.push({
-        name: 'CounselorList',
-        query: {
-          name: this.customerName
+    computed: {
+      showBread () {
+        return this.$route.path !== '/'
+      }
+    },
+    created () {
+      this.user = this.$store.state.user
+    },
+    methods: {
+      handleCommand (command) {
+        if (command === 'logout') {
+          this.$store.dispatch("logout").then(() => {
+            this.$router.push({
+              name: 'LoginPage'
+            })
+          })
+        } else if (command === 'information') {
+          this.$router.push({
+            name: 'PersonInformation'
+          })
         }
-      })
+      },
+      handleQuery () {
+        this.$router.push({
+          name: 'CounselorList',
+          query: {
+            name: this.customerName
+          }
+        })
+      }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -116,10 +116,10 @@ export default {
   right: 140px;
 }
 
-#home-title {
-  line-height: 50px;
-  font-size: 2em;
-}
+  #home-title {
+    line-height: 50px;
+    font-size: 2em;
+  }
 
 .home-contain {
   margin-top: 60px;

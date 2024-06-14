@@ -51,9 +51,9 @@ const router = new Router({
 					}
 				},
 				{
-					path: 'interviewlist',
-					name: 'InterviewList',
-					component: () => import('@/views/interview/InterviewList'),
+					path: 'interviewRecordsList',
+					name: 'InterviewRecordsList',
+					component: () => import('@/views/interviewrecords/InterviewRecordsList'),
 					meta: {
 						auth: true,
 						title: '访谈记录列表'

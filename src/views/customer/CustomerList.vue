@@ -115,9 +115,9 @@
         //点击查询回到第一页
         this.listLoading = true;
         queryCustomerAnalysis(this.listQuery).then(response => {
-          this.list = response.data.list;
-          this.total = response.total;
-          this.listLoading = false;
+          this.list = response.data.list
+          this.total = response.data.total
+          this.listLoading = false
         });
       },
       handleAdd () {
@@ -130,6 +130,14 @@
           name: "CustomerAnalysisView",
           query: { appId: this.multipleSelection[0].id }
         });
+      },
+      handleSelectionChange (val) {
+        if (val.length > 1) {
+          this.$refs.InterviewRecordsTable.clearSelection()
+          this.$refs.InterviewRecordsTable.toggleRowSelection(val.pop())
+        } else {
+          this.multipleSelection = val
+        }
       },
       handleUpdate () {
         this.$router.push({
