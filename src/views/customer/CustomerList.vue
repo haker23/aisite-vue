@@ -115,7 +115,7 @@
         //点击查询回到第一页
         this.listLoading = true;
         queryCustomerAnalysis(this.listQuery).then(response => {
-          this.list = response.data;
+          this.list = response.data.list;
           this.total = response.total;
           this.listLoading = false;
         });

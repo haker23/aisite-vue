@@ -60,12 +60,21 @@ const router = new Router({
 					}
 				},
 				{
-					path: '/information',
+					path: 'information',
 					name: 'PersonInformation',
 					component: () => import('@/views/PersonInformation'),
 					meta: {
 						auth: false,
 						title: '个人信息管理'
+					}
+				},
+				{
+					path: 'interviewmanager',
+					name: 'InterviewManager',
+					component: () => import('@/views/interview/InterviewManager'),
+					meta: {
+						auth: true,
+						title: '访谈管理'
 					}
 				}
 			]

@@ -25,13 +25,17 @@
               <el-menu-item index="/counselorlist">咨询师列表</el-menu-item>
               <el-menu-item index="/customerlist">客户列表</el-menu-item>
             </el-submenu>
+            <el-menu-item index="/interviewmanager">
+              <i class="el-icon-menu"></i>
+              <span slot="title">访谈管理</span>
+            </el-menu-item>
             <el-menu-item index="/interviewlist">
               <i class="el-icon-menu"></i>
               <span slot="title">访谈记录列表</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
-        <el-main>
+        <el-main class="contain-main">
           <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item v-if="showBread">{{ $route.meta.title }}</el-breadcrumb-item>
@@ -96,20 +100,21 @@ export default {
   align-items: center;
   position: fixed;
   z-index: 2;
+  box-shadow: 0px 4px 8px -4px #000;
 }
 
-  .home-user {
-    width: 110px;
-    line-height: 50px;
-    position: fixed;
-    right: 10px;
-  }
+.home-user {
+  width: 110px;
+  line-height: 50px;
+  position: fixed;
+  right: 10px;
+}
 
-  .input-with-select {
-    width: 200px;
-    position: fixed;
-    right: 140px;
-  }
+.input-with-select {
+  width: 200px;
+  position: fixed;
+  right: 140px;
+}
 
 #home-title {
   line-height: 50px;
@@ -118,10 +123,24 @@ export default {
 
 .home-contain {
   margin-top: 60px;
+  height: 100vh;
 }
 
-  .contain-aside>>>.el-menu {
-    overflow: hidden;
-    border-right: 0;
-  }
+.contain-aside {
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  box-shadow: 3px 0 8px -4px #000;
+  z-index: 2;
+}
+
+.contain-aside>>>.el-menu {
+  width: 100%;
+  overflow: hidden;
+  border-right: 0;
+}
+
+.contain-main {
+  margin-left: 200px;
+}
 </style>
