@@ -13,3 +13,10 @@ export function queryInterviewRecords(data) {
   })
 }
 
+export function save(data) {
+  return request({
+    url: '/interviewrecords/interviewrecords/save',
+    method: 'post',
+    data
+  })
+}

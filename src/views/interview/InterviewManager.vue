@@ -33,7 +33,7 @@
 
 <script>
 import { createInterview } from '@/api/interview/interview'
-import { saveCustomerAnalysis } from '@/api/customeranalysis/customeranalysis'
+import { save } from '@/api/interviewrecords/interviewrecords'
 import hakerMp4 from '@/assets/video/haker.mp4'
 import kann from '@/assets/video/kann.mp4'
 
@@ -77,13 +77,10 @@ export default {
         target: document.querySelector('#table')//loadin覆盖的dom元素节点
       })
       setTimeout(() => {
-        var customerAnalusis = {
-          name: 'kann',
-          gender: '男',
-          userId: 'dbd9ce5c-3dc5-4031-b3ca-e9fe0c20be9f',
-          isNew: true
-        }
-        saveCustomerAnalysis(customerAnalusis).then(response => {
+        save({
+          consultantId: 1,
+          clientId: 2
+        }).then(response => {
           console.log(response)
           this.$notify({
             type: 'success',
