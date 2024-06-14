@@ -131,6 +131,14 @@
           query: { appId: this.multipleSelection[0].id }
         });
       },
+      handleSelectionChange (val) {
+        if (val.length > 1) {
+          this.$refs.InterviewRecordsTable.clearSelection()
+          this.$refs.InterviewRecordsTable.toggleRowSelection(val.pop())
+        } else {
+          this.multipleSelection = val
+        }
+      },
       handleUpdate () {
         this.$router.push({
           name: "CustomerAnalysisEdit",

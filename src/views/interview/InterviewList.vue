@@ -6,20 +6,20 @@
 
 <script>
 
-export default {
-  name: 'InterViewList',
-  data() {
-    return {
+  export default {
+    name: 'InterViewList',
+    data () {
+      return {
+
+      }
+    },
+    created () {
+
+    },
+    methods: {
 
     }
-  },
-  created() {
-
-  },
-  methods: {
-
   }
-}
 </script>
 
 <style>

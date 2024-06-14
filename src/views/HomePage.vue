@@ -25,7 +25,7 @@
               <el-menu-item index="/counselorlist">咨询师列表</el-menu-item>
               <el-menu-item index="/customerlist">客户列表</el-menu-item>
             </el-submenu>
-            <el-menu-item index="/interviewlist">
+            <el-menu-item index="/interviewRecordsList">
               <i class="el-icon-menu"></i>
               <span slot="title">访谈记录列表</span>
             </el-menu-item>
@@ -45,58 +45,58 @@
 
 <script>
 
-export default {
-  name: 'HomePage',
-  data() {
-    return {
-      user: {},
-      customerName: '',
-    }
-  },
-  computed: {
-    showBread() {
-      return this.$route.path !== '/'
-    }
-  },
-  created() {
-    this.user = this.$store.state.user
-  },
-  methods: {
-    handleCommand(command) {
-      if (command === 'logout') {
-        this.$store.dispatch("logout").then(() => {
-          this.$router.push({
-            name: 'LoginPage'
-          })
-        })
-      } else if (command === 'information') {
-        this.$router.push({
-          name: 'PersonInformation'
-        })
+  export default {
+    name: 'HomePage',
+    data () {
+      return {
+        user: {},
+        customerName: '',
       }
     },
-    handleQuery() {
-      this.$router.push({
-        name: 'CounselorList',
-        query: {
-          name: this.customerName
+    computed: {
+      showBread () {
+        return this.$route.path !== '/'
+      }
+    },
+    created () {
+      this.user = this.$store.state.user
+    },
+    methods: {
+      handleCommand (command) {
+        if (command === 'logout') {
+          this.$store.dispatch("logout").then(() => {
+            this.$router.push({
+              name: 'LoginPage'
+            })
+          })
+        } else if (command === 'information') {
+          this.$router.push({
+            name: 'PersonInformation'
+          })
         }
-      })
+      },
+      handleQuery () {
+        this.$router.push({
+          name: 'CounselorList',
+          query: {
+            name: this.customerName
+          }
+        })
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-.home-header {
-  width: 100%;
-  height: 50px;
-  background: rgb(198, 221, 252);
-  display: flex;
-  align-items: center;
-  position: fixed;
-  z-index: 2;
-}
+  .home-header {
+    width: 100%;
+    height: 50px;
+    background: rgb(198, 221, 252);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+  }
 
   .home-user {
     width: 110px;
@@ -111,14 +111,14 @@ export default {
     right: 140px;
   }
 
-#home-title {
-  line-height: 50px;
-  font-size: 2em;
-}
+  #home-title {
+    line-height: 50px;
+    font-size: 2em;
+  }
 
-.home-contain {
-  margin-top: 60px;
-}
+  .home-contain {
+    margin-top: 60px;
+  }
 
   .contain-aside>>>.el-menu {
     overflow: hidden;
