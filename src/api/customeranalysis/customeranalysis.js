@@ -20,7 +20,7 @@ export function queryCustomerAnalysis(data) {
  */
 export function saveCustomerAnalysis(data) {
   return request({
-    url: '/customeranalysis/customeranalysis/query',
+    url: '/customeranalysis/customeranalysis/save',
     method: 'post',
     data
   })

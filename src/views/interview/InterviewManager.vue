@@ -1,6 +1,7 @@
 <template>
   <div class="interview">
     <el-button class="interview-button" @click="doCreateInterview">创建访谈室</el-button>
+    <el-button class="interview-button" type="primary" @click="doCreateResult">生成访谈结果</el-button>
 
     <div v-if="isCreatedInterview" class="interview-video">
       <video class="video-player" :src="videoUrl1" controls autoplay></video>
@@ -32,6 +33,7 @@
 
 <script>
 import { createInterview } from '@/api/interview/interview'
+import { saveCustomerAnalysis } from '@/api/customeranalysis/customeranalysis'
 import hakerMp4 from '@/assets/video/haker.mp4'
 import kann from '@/assets/video/kann.mp4'
 
@@ -65,6 +67,31 @@ export default {
         this.isCreatedInterview = true
         console.log(this.interview)
       })
+    },
+    doCreateResult() {
+      const loading = this.$loading({
+        lock: true,//lock的修改符--默认是false
+        text: 'Loading',//显示在加载图标下方的加载文案
+        spinner: 'el-icon-loading',//自定义加载图标类名
+        background: 'rgba(240, 240, 240, 0.7)',//遮罩层颜色
+        target: document.querySelector('#table')//loadin覆盖的dom元素节点
+      })
+      setTimeout(() => {
+        var customerAnalusis = {
+          name: 'kann',
+          gender: '男',
+          userId: 'dbd9ce5c-3dc5-4031-b3ca-e9fe0c20be9f',
+          isNew: true
+        }
+        saveCustomerAnalysis(customerAnalusis).then(response => {
+          console.log(response)
+          this.$notify({
+            type: 'success',
+            message: '更新成功'
+          })
+        })
+        loading.close()
+      }, 3000 )
     }
   }
 }
@@ -77,7 +104,7 @@ export default {
 }
 
 .interview-button {
-  margin: 50px 0 20px 0;
+  margin: 50px 20px 20px 0;
 }
 
 .interview-video {

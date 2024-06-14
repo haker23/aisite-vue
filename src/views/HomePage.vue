@@ -29,7 +29,7 @@
               <i class="el-icon-menu"></i>
               <span slot="title">访谈管理</span>
             </el-menu-item>
-            <el-menu-item index="/interviewlist">
+            <el-menu-item index="/interviewRecordsList">
               <i class="el-icon-menu"></i>
               <span slot="title">访谈记录列表</span>
             </el-menu-item>
