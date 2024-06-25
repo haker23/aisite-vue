@@ -86,12 +86,6 @@ export default {
     },
     handleClose() {
       this.dialogVisible = false
-      this.$router.push({
-        name: 'MeetingRoom',
-        query: {
-          roomId: this.roomId
-        }
-      })
     },
     doCreateResult() {
       const loading = this.$loading({

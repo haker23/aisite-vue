@@ -1,5 +1,5 @@
 let proxyObj = {}
-proxyObj['/'] = {
+proxyObj['/aisite'] = {
   target: 'http://localhost:9090',
   ws: false,
   changeOrigin: true,
@@ -12,6 +12,7 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: 9091,
-    proxy: proxyObj
+    proxy: proxyObj,
+    webSocketServer: false
   }
 }

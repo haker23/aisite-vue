@@ -33,6 +33,10 @@
               <i class="el-icon-menu"></i>
               <span slot="title">访谈记录列表</span>
             </el-menu-item>
+            <el-menu-item index="/chatwindow">
+              <i class="el-icon-menu"></i>
+              <span slot="title">访谈助手</span>
+            </el-menu-item>
           </el-menu>
         </el-aside>
         <el-main class="contain-main">

@@ -77,13 +77,22 @@ const router = new Router({
 						title: '访谈管理'
 					}
 				},
+				// {
+				// 	path: 'meetingroom',
+				// 	name: 'MeetingRoom',
+				// 	component: () => import('@/views/interview/MeetingRoom'),
+				// 	meta: {
+				// 		auth: true,
+				// 		title: '视频会议'
+				// 	}
+				// },
 				{
-					path: 'meetingroom',
-					name: 'MeetingRoom',
-					component: () => import('@/views/interview/MeetingRoom'),
+					path: 'chatwindow',
+					name: 'ChatWindow',
+					component: () => import('@/views/ChatWindow'),
 					meta: {
 						auth: true,
-						title: '视频会议'
+						title: '访谈助手'
 					}
 				}
 			]
