@@ -76,6 +76,15 @@ const router = new Router({
 						auth: true,
 						title: '访谈管理'
 					}
+				},
+				{
+					path: 'meetingroom',
+					name: 'MeetingRoom',
+					component: () => import('@/views/interview/MeetingRoom'),
+					meta: {
+						auth: true,
+						title: '视频会议'
+					}
 				}
 			]
 		},

@@ -28,11 +28,26 @@
         <el-input v-model="audioContent" type="textarea" :rows="5"></el-input>
       </div>
     </div>
+
+    <el-dialog
+      title="注册访谈室"
+      :visible.sync="dialogVisible"
+      width="30%"
+    >
+      <el-form :model="room">
+        <el-form-item label="房间名">
+          <el-input v-model="room.roomId" />
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="handleClose">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { createInterview } from '@/api/interview/interview'
 import { save } from '@/api/interviewrecords/interviewrecords'
 import hakerMp4 from '@/assets/video/haker.mp4'
 import kann from '@/assets/video/kann.mp4'
@@ -54,7 +69,11 @@ export default {
         '针对年轻人和初入职场的新人，您有哪些建议以提高他们的就业竞争力？有哪些技能和知识是他们应该特别重视的？',
         '您认为政府在促进就业方面应该扮演什么样的角色？有哪些政策措施可以有效地缓解就业压力，并促进劳动力市场的健康发展？',
         '当前，远程工作和灵活就业模式越来越普遍。您认为这些新兴就业模式对就业市场带来了哪些机遇和挑战？个人和企业应该如何适应这种变化？'
-      ]
+      ],
+      dialogVisible: false,
+      room: {
+        roomId: ''
+      }
     }
   },
   created() {
@@ -62,26 +81,17 @@ export default {
   },
   methods: {
     doCreateInterview() {
-      const loading = this.$loading({
-        lock: true,//lock的修改符--默认是false
-        text: 'Loading',//显示在加载图标下方的加载文案
-        spinner: 'el-icon-loading',//自定义加载图标类名
-        background: 'rgba(240, 240, 240, 0.7)',//遮罩层颜色
-        target: document.querySelector('#table')//loadin覆盖的dom元素节点
+      window.open('https://localhost:8087/toMeeting')
+      // this.dialogVisible = true
+    },
+    handleClose() {
+      this.dialogVisible = false
+      this.$router.push({
+        name: 'MeetingRoom',
+        query: {
+          roomId: this.roomId
+        }
       })
-      setTimeout(() => {
-        save({
-          consultantId: 1,
-          clientId: 2
-        }).then(() => {
-        })
-        loading.close()
-        createInterview(this.user.userId).then(response => {
-          this.interview = response.data
-          this.isCreatedInterview = true
-          console.log(this.interview)
-        })
-      }, 1000 )
     },
     doCreateResult() {
       const loading = this.$loading({
