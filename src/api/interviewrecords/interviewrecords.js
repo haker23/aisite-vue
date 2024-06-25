@@ -20,3 +20,35 @@ export function save(data) {
     data
   })
 }
+
+/**
+ * 存储咨询访谈详细记录的表获取单条  interviewrecords  interviewrecords
+ */
+export function getInterviewRecords(id) {
+  return request({
+    url: '/interviewrecords/interviewrecords/' + id,
+    method: 'get'
+  })
+}
+
+/**
+ * 存储咨询访谈详细记录的表新增或修改
+ */
+export function saveInterviewRecords(data) {
+  return request({
+    url: '/interviewrecords/interviewrecords/save',
+    method: 'post',
+    data
+  })
+}
+
+/**
+ * 存储咨询访谈详细记录的表删除
+ */
+export function deleteInterviewRecords(data) {
+  return request({
+    url: '/interviewrecords/interviewrecords/delete',
+    method: 'post',
+    data
+  })
+}
